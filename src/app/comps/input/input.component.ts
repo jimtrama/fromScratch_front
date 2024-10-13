@@ -22,6 +22,12 @@ export class InputComponent {
   @Input({required:true})
   form:FormGroup = new FormGroup([]);
 
+  @Input()
+  error:boolean = false;
+
+  @Input()
+  errorText:string = '';
+
   focusedOnInput: boolean = false;
 
   focused(e: FocusEvent, focused: boolean) {

@@ -21,7 +21,7 @@ export class ParticipantsComponent {
 
   constructor(private http: HttpClient) {
     this.http
-      .get('http://localhost:3000/participants')
+      .get('/api/participants')
       .pipe(catchError((err)=>{this.fetchingData=false;return of(err)}))
       .subscribe((data: any) => {
         for (let user of data.results) {

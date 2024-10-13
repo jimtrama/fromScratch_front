@@ -13,6 +13,9 @@
         (form.get(name)?.dirty || form.get(name)?.touched)
     }"
   />
+  <div class="error-wrapper" *ngIf="error">
+    <small>{{errorText}}</small>
+  </div>
   <ng-container *ngIf="!focusedOnInput && specialCharacter != ''">
     <span [id]="'special-' + label" class="special jump-in">{{
       specialCharacter

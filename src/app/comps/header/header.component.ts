@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit{
 
   navLinkClicked(link:RouteLink){
     this.animateHighlight(link);
-    this.animateBounce();
+    HeaderComponent.animateBounce();
     this.selectedRoute = link;
     this.router.navigate([link])
   }
@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit{
     }
   }
 
-  private animateBounce():void{
+  static animateBounce():void{
     const bounceElement = document.getElementById("minecraft");
     if(!!bounceElement){
       if(bounceElement.classList.contains("image-bounce")){
