@@ -72,8 +72,10 @@ export class RegisterComponent {
         if(!!res.error){
           this.error = res.error;
         }
-        console.log(res);
+        if(res.success){
+          this.registrationForm.reset();
+        }
+        this.buttonLoadSubscription = undefined;
       });
-    console.log(this.registrationForm.value);
   }
 }
