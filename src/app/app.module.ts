@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TitleComponent } from './comps/title/title.component';
 import { ParticipantComponent } from './comps/participant/participant.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './comps/input/input.component';
 import { DropDownComponent } from './comps/drop-down/drop-down.component';
 import { CheckboxComponent } from './comps/checkbox/checkbox.component';
@@ -30,7 +30,7 @@ import { CheckboxComponent } from './comps/checkbox/checkbox.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule

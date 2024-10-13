@@ -13,10 +13,41 @@
     </p>
   </div>
   
-  <form  #registerForm="ngForm">
-    <app-input specialCharacter=">" placeholder="enter your name" label="Name *"></app-input>
-    <app-input specialCharacter=">" placeholder="enter your name" label="Last Name *"></app-input>
+  <form [formGroup]="registrationForm"  (ngSubmit)="onSubmit()">
+    <app-input 
+      specialCharacter=">" 
+      placeholder="enter your name" 
+      label="Name *" 
+      name="firstName" 
+      [form]="registrationForm"
+    ></app-input>
+    <app-input 
+      specialCharacter=">" 
+      placeholder="enter your name" 
+      label="Last Name *" 
+      name="lastName" 
+      [form]="registrationForm"
+      ></app-input>
+    <app-input 
+      specialCharacter=">" 
+      placeholder="enter your gitlab id" 
+      label="Gitlab ID *" 
+      name="gitlab" 
+      [form]="registrationForm"
+    ></app-input>
+    <app-input 
+      specialCharacter=">" 
+      placeholder="enter your kaggle id" 
+      label="Kaggle ID *" 
+      name="kaggle" 
+      [form]="registrationForm"
+    ></app-input>
     
-
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+      <small >First Name is required.</small>
+    </div>
+    <div class="button-wrapper">
+      <button class="submit-button" type="submit" [disabled]="registrationForm.invalid">Submit</button>
+    </div>
   </form>
 </div>

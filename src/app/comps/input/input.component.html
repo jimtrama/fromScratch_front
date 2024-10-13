@@ -1,13 +1,21 @@
-<label>{{label}}</label>
-<input 
-    type="text" 
-    [placeholder]="placeholder" 
-    (focusin)="focused($event,true)" 
-    (focusout)="focused($event,false)"
->
-<ng-container *ngIf="!focusedOnInput && specialCharacter != ''">
-    <span [id]="'special-'+placeholder" class="special jump-in">{{specialCharacter}}</span>
+<ng-container [formGroup]="form">
+  <span class="label">{{ label }}</span>
+  <input
+    [id]="name"
+    [formControlName]="name"
+    type="text"
+    [placeholder]="placeholder"
+    (focusin)="focused($event, true)"
+    (focusout)="focused($event, false)"
+    [ngClass]="{
+      'error':
+        form.get(name)?.invalid &&
+        (form.get(name)?.dirty || form.get(name)?.touched)
+    }"
+  />
+  <ng-container *ngIf="!focusedOnInput && specialCharacter != ''">
+    <span [id]="'special-' + label" class="special jump-in">{{
+      specialCharacter
+    }}</span>
+  </ng-container>
 </ng-container>
-
-
-

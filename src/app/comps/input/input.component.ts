@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -15,16 +16,19 @@ export class InputComponent {
   @Input({required:true})
   label:string = ''; 
 
+  @Input({required:true})
+  name:string=''
+
+  @Input({required:true})
+  form:FormGroup = new FormGroup([]);
+
   focusedOnInput: boolean = false;
 
   focused(e: FocusEvent, focused: boolean) {
-    console.log(e);
-    console.log(focused);
-    const element = document.getElementById('special-'+this.placeholder);
+    const element = document.getElementById('special-'+this.label);
     if(!element) {
       console.log("Not Ready") 
     }
-    
     if (focused) {
       if(element?.classList.contains("jump-in")){
         element.classList.remove("jump-in");
@@ -37,7 +41,6 @@ export class InputComponent {
     } else {
       this.setFocused(focused)
     }
-   
   }
 
   setFocused(focused:boolean){
