@@ -1,0 +1,40 @@
+:host{
+    height: fit-content;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.theform{
+    width: 1115px;
+    height: 800px;
+    display: flex;
+    background-color: transparent;
+}
+
+
+.descrition{
+    font-size: 25px;
+    max-width: 958px;
+    text-align: center;
+    margin-top: 9px;
+    position: absolute;
+    transform: translateX(-50%);
+
+    animation-name: in-p;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+
+}
+
+
+@keyframes in-p {
+    0%{
+        left:-100%;
+    }
+    100%{
+        left: 50%;
+    }
+}

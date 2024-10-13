@@ -1,0 +1,14 @@
+<app-title title="Participants" special=">" [specialColored]="true"></app-title>
+
+<div class="participants-wrapper">
+  <span *ngIf="fetchingData" class="loader"></span>
+  <app-participant
+    *ngFor="let participant of participants; let i = index"
+    [id]="'p-' + i"
+    [firstName]="participant.firstName"
+    [lastName]="participant.lastName"
+    [gitlab]="participant.gitlab"
+    [kaggle]="participant.kaggle"
+    [registrationDate]="participant.registrationDate"
+  ></app-participant>
+</div>

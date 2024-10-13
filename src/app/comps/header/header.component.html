@@ -1,0 +1,26 @@
+<div class="top-half-wrapper" >
+    <img src="assets/logo.svg">
+</div>
+<div class="bottom-half-wrapper">
+    <img id="minecraft" class="image-in" src="assets/minecraft.svg">
+    <div class="image-bg" ></div>
+    <div class="nav-bar-wrapper" >
+        <button 
+            (mouseenter)="mouseEnter('register')" 
+            (mouseleave)="mouseLeave()" 
+            (click)="navLinkClicked('register')">
+            Register
+        </button>
+        
+        <button 
+            (mouseenter)="mouseEnter('participants')" 
+            (mouseleave)="mouseLeave()" 
+            (click)="navLinkClicked('participants')">
+            Participants
+        </button>
+        
+        <div id="highlighter"></div>
+    </div>
+</div>
+
+

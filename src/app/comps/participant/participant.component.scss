@@ -1,0 +1,26 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    gap: 20px;
+    padding: 20px;
+    
+    min-height: fit-content;
+    max-width: 691px;
+    width: 85vw;
+    min-width: fit-content;
+    border: 3px solid var(--white);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.row{
+    display: flex;
+    gap: 10px;
+}
+
+.label{
+    color: var(--green);
+    text-transform: uppercase;
+}

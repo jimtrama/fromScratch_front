@@ -1,0 +1,27 @@
+:host{
+    font-size: 60px;
+    margin-top: 32px;
+    position: relative;
+    padding-left: 32px;
+    animation-name: inP;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+span{
+    position: absolute;
+    left: 0;
+    animation-name: in;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes in {
+    0%{left: -100%;}
+    100%{left:0%}
+}
+
+@keyframes inP{
+    0%{padding-left: 600px;}
+    100%{padding-left: 32px;}
+}
