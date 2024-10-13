@@ -1,11 +1,3 @@
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-  query,
-} from '@angular/animations';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -17,15 +9,20 @@ export class InputComponent {
   @Input()
   specialCharacter: string = '';
 
+  @Input({required:true})
+  placeholder:string = '';
+
+  @Input({required:true})
+  label:string = ''; 
+
   focusedOnInput: boolean = false;
 
   focused(e: FocusEvent, focused: boolean) {
     console.log(e);
     console.log(focused);
-    const element = document.getElementById('special');
+    const element = document.getElementById('special-'+this.placeholder);
     if(!element) {
       console.log("Not Ready") 
-   
     }
     
     if (focused) {
@@ -33,7 +30,10 @@ export class InputComponent {
         element.classList.remove("jump-in");
       }
       element?.classList.add('jump-out');
-      this.runNextCirlce(()=>{this.setFocused(focused)},400)
+      this.runNextCirlce(()=>{
+        element?.classList.remove("jump-out");
+        this.setFocused(focused)
+      },300)
     } else {
       this.setFocused(focused)
     }
