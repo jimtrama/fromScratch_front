@@ -1,16 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { catchError, of, Subscription } from 'rxjs';
+import { HeaderComponent } from '../../comps/header/header.component';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  mobile:boolean = false;
-  registrationForm:FormGroup;
-  constructor( private formBuilder: FormBuilder){
-    this.mobile = window.innerWidth < 600 ;
+  mobile: boolean = false;
+  registrationForm: FormGroup;
+  buttonLoadSubscription: Subscription | undefined = undefined;
+  error="";
+
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+    this.mobile = window.innerWidth < 600;
 
     this.registrationForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -20,23 +26,54 @@ export class RegisterComponent {
     });
   }
 
-  get firstName():any {
+  get firstName(): any {
     return this.registrationForm.get('firstName');
   }
 
-  get lastName() {
+  get lastName():any{
     return this.registrationForm.get('lastName');
   }
 
-  get gitlab() {
+  get gitlab() :any{
     return this.registrationForm.get('gitlab');
   }
 
-  get kaggle() {
+  get kaggle():any {
     return this.registrationForm.get('kaggle');
   }
 
   onSubmit() {
+    HeaderComponent.animateBounce();
+    if (this.registrationForm.invalid) {
+      console.log('Invalid Form Please Clean ');
+      console.log(this.registrationForm);
+      this.error = 'Invalid Form Please Clean';
+      this.registrationForm.markAllAsTouched();
+      return;
+    }
+    this.error = '';
+    const headers = { 'Content-Type': 'application/json'}
+    this.buttonLoadSubscription = this.http
+      .post('/api/participant',
+        {
+          'firstName':this.firstName.value,
+          'lastName':this.lastName.value,
+          'gitlab':this.gitlab.value,
+          'kaggle':this.kaggle.value
+        },
+        {headers}
+      )
+      .pipe(catchError((e)=>{
+        this.error = "Something went wrong";
+        this.buttonLoadSubscription = undefined;
+        return of(e);
+      }))
+      .subscribe((res: any) => {
+        if(!!res.error){
+          this.error = res.error;
+        }
+        console.log(res);
+      });
     console.log(this.registrationForm.value);
   }
 }
