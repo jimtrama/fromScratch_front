@@ -1,20 +1,25 @@
 :host{
-    width: 50%;
+    width: 45%;
     max-width: 545.5px;
-    min-width: 100px;
+    min-width: 312px;
     height: fit-content;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
 }
-label{
-    margin-top: 10px;
+.label{
+    font-size: 24px;
 }
 input{
     width: 90%;
     height: fit-content;
     font-size: 20px;
+    
     border: 3px solid var(--white);
     border-radius: 4px;
-    font-size: 20px;
+
     background-color: transparent;
     padding: 10px 0px 10px 40px;
     color: var(--white);
@@ -28,11 +33,8 @@ input:focus{
     font-size: 30px;
     color: var(--white);
     position: absolute;
-    transform: translateY(-50%);
-    left: 13px;
-    top: 63%;
-
-    
+    left: 38px;
+    bottom: 5px;
 }
 
 .jump-out{
@@ -54,15 +56,19 @@ input:focus{
     50%{ top: 52%;}
     70%{ top: 58%;}
     80%{ top: 67%;}
-    100%{ top: 60%;}  
+    100%{ top: 70%;}  
 }
 
 @keyframes jumpout {
-    0%{ top: 60%;}
+    0%{ top: 70%;}
     10%{ top: 60%;}
     20%{ top: 45%;}
     50%{ top: 52%;}
-    70%{ top: 58%;}
-    80%{ top: 67%;}
+    70%{ top: 88%;}
+    80%{ top: 100%;}
     100%{ top: 150%;}  
+}
+
+.error{
+    border: 3px solid var(--pink);
 }
