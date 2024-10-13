@@ -1,0 +1,13 @@
+<input 
+    type="text" 
+    placeholder="test" 
+    (focusin)="focused($event,true)" 
+    (focusout)="focused($event,false)"
+>
+<ng-container *ngIf="!focusedOnInput && specialCharacter != ''">
+    <span id="special" class="special jump-in">{{specialCharacter}}</span>
+
+</ng-container>
+
+
+

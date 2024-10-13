@@ -1,0 +1,66 @@
+:host{
+    width: 50%;
+    max-width: 545.5px;
+    min-width: 100px;
+    height: fit-content;
+    position: relative;
+}
+
+input{
+    width: 90%;
+    height: fit-content;
+    font-size: 20px;
+    border: 3px solid var(--white);
+    border-radius: 4px;
+    font-size: 20px;
+    background-color: transparent;
+    padding: 10px 0px 10px 40px;
+    color: var(--white);
+}
+
+input:focus{
+    outline: none;
+}
+
+.special{
+    font-size: 30px;
+    color: var(--white);
+    position: absolute;
+    transform: translateY(-50%);
+    left: 13px;
+    top: 50%;
+
+    
+}
+
+.jump-out{
+    animation-name: jumpout;
+
+    animation-duration: 0.4s;
+}
+.jump-in{
+    animation-name: jumpin;
+
+    animation-duration: 0.4s;
+}
+
+
+@keyframes jumpin {
+    0%{ top: 150%;}
+    10%{ top: 60%;}
+    20%{ top: 45%;}
+    50%{ top: 52%;}
+    70%{ top: 58%;}
+    80%{ top: 67%;}
+    100%{ top: 50%;}  
+}
+
+@keyframes jumpout {
+    0%{ top: 50%;}
+    10%{ top: 60%;}
+    20%{ top: 45%;}
+    50%{ top: 52%;}
+    70%{ top: 58%;}
+    80%{ top: 67%;}
+    100%{ top: 150%;}  
+}

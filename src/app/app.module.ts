@@ -10,6 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TitleComponent } from './comps/title/title.component';
 import { ParticipantComponent } from './comps/participant/participant.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { InputComponent } from './comps/input/input.component';
+import { DropDownComponent } from './comps/drop-down/drop-down.component';
+import { CheckboxComponent } from './comps/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +23,14 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     ParticipantsComponent,
     TitleComponent,
-    ParticipantComponent
+    ParticipantComponent,
+    InputComponent,
+    DropDownComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule
