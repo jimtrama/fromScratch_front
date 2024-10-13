@@ -6,6 +6,7 @@
     animation-name: inP;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    white-space: nowrap;
 }
 
 span{
@@ -14,6 +15,7 @@ span{
     animation-name: in;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
+   
 }
 
 @keyframes in {

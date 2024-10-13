@@ -4,10 +4,18 @@
   [specialColored]="true"
 ></app-title>
 
-<div style="position: relative;">
-  <p class="descrition">
-    Welcome to Hacktoberfest 2024 <br />Fill in your information in order to
-    register
-  </p>
-  <form class="theform"></form>
+<div class="content-wrapper">
+  <div style="height: 120px;width: 100%; position: relative;">
+    <p class="descrition">
+      Welcome to Hacktoberfest 2024 <br />Fill in your information in order to
+      <br *ngIf="mobile" />
+      register
+    </p>
+  </div>
+  
+  <form  #registerForm="ngForm">
+    <app-input specialCharacter=">"></app-input>
+    <app-input></app-input>
+
+  </form>
 </div>
