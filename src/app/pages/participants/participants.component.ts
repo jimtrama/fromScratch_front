@@ -22,7 +22,7 @@ export class ParticipantsComponent {
 
   constructor(private http: HttpClient) {
     this.http
-      .get(environment.apiUrl+'/api/participants')
+      .get(environment.production?(environment.apiUrl+'/participants'):'/api/participants')
       .pipe(catchError((err)=>{this.fetchingData=false;return of(err)}))
       .subscribe((data: any) => {
         for (let user of data.results) {
