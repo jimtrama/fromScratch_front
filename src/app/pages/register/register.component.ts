@@ -58,7 +58,7 @@ export class RegisterComponent{
     this.error = '';
     const headers = { 'Content-Type': 'application/json'}
     this.buttonLoadSubscription = this.http
-      .post(environment.apiUrl+'/api/participant',
+      .post('/api/participant',
         {
           'firstName':this.firstName.value,
           'lastName':this.lastName.value,
