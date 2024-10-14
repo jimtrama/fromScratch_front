@@ -30,8 +30,9 @@ body{
 
 /* width */
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 2px;
     height: 20px;
+    padding-left: 3px;
   }
   
   /* Track */
@@ -43,6 +44,7 @@ body{
   ::-webkit-scrollbar-thumb {
     background: var(--green);
     border-radius: 10px;
+    background-clip: content-box;
   }
   
   /* Handle on hover */

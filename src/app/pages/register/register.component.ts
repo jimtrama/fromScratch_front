@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, of, Subscription } from 'rxjs';
 import { HeaderComponent } from '../../comps/header/header.component';
@@ -27,12 +27,15 @@ export class RegisterComponent{
       lastName: ['', Validators.required],
       gitlab: ['', Validators.required],
       kaggle: ['', Validators.required],
+      date: [''],
     });
   }
 
   get firstName(): any {
     return this.registrationForm.get('firstName');
   }
+
+  date:Date  = new Date();
 
   get lastName():any{
     return this.registrationForm.get('lastName');

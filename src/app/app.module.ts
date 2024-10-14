@@ -14,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './comps/input/input.component';
 import { DropDownComponent } from './comps/drop-down/drop-down.component';
 import { CheckboxComponent } from './comps/checkbox/checkbox.component';
-
+import { CalendarComponent } from './comps/calendar/calendar.component';
+import { CalendarModule } from 'primeng/calendar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +27,12 @@ import { CheckboxComponent } from './comps/checkbox/checkbox.component';
     ParticipantComponent,
     InputComponent,
     DropDownComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
