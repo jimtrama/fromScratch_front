@@ -1,29 +1,30 @@
 :host{
-    font-size: 60px;
-    margin-top: 32px;
+    font-size: 3rem;
+    height: fit-content;
+    width: fit-content;
     position: relative;
-    padding-left: 32px;
-    animation-name: inP;
+    padding: 10px;
+
+    display: flex;
+    
+    animation-name: in;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     white-space: nowrap;
 }
-
+@media only screen and (max-width: 600px) {
+    :host{
+        font-size: 2rem !important;
+    }
+    span{
+        color: var(--white) !important;
+     }
+}
 span{
-    position: absolute;
-    left: 0;
-    animation-name: in;
-    animation-duration: 0.2s;
-    animation-fill-mode: forwards;
-   
+   color: var(--green);
 }
 
 @keyframes in {
-    0%{left: -100%;}
-    100%{left:0%}
-}
-
-@keyframes inP{
-    0%{padding-left: 600px;}
-    100%{padding-left: 32px;}
+    0%{gap: 100%;}
+    100%{gap:20px;}
 }
