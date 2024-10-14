@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { catchError, of } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 type ParticipantType = {
   firstName: string;
@@ -21,7 +22,7 @@ export class ParticipantsComponent {
 
   constructor(private http: HttpClient) {
     this.http
-      .get('/api/participants')
+      .get(environment.apiUrl+'/api/participants')
       .pipe(catchError((err)=>{this.fetchingData=false;return of(err)}))
       .subscribe((data: any) => {
         for (let user of data.results) {

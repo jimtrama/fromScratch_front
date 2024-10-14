@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, of, Subscription } from 'rxjs';
 import { HeaderComponent } from '../../comps/header/header.component';
 import { Rockets } from './rockets';
+import { environment } from '../../../environments/environment.development';
 //Thanks Freepic from the rockect images from https://www.flaticon.com/free-icon/fireworks_3034059?term=fireworks&page=1&position=12&origin=search&related_id=3034059
 @Component({
   selector: 'app-register',
@@ -57,7 +58,7 @@ export class RegisterComponent{
     this.error = '';
     const headers = { 'Content-Type': 'application/json'}
     this.buttonLoadSubscription = this.http
-      .post('/api/participant',
+      .post(environment.apiUrl+'/api/participant',
         {
           'firstName':this.firstName.value,
           'lastName':this.lastName.value,
