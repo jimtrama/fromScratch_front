@@ -52,8 +52,8 @@ export class HeaderComponent implements OnInit{
   private animateHighlight(forLink:RouteLink):void{
     const highlightElement = document.getElementById("highlighter");
     if(!!highlightElement){
-      highlightElement.style.left = ANIMATION_VALUES[forLink].left;
-      highlightElement.style.width = ANIMATION_VALUES[forLink].width;
+      highlightElement.style.left = ANIMATION_VALUES[forLink]?.left;
+      highlightElement.style.width = ANIMATION_VALUES[forLink]?.width;
     }
   }
 
