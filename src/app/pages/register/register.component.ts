@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, of, Subscription } from 'rxjs';
 import { HeaderComponent } from '../../comps/header/header.component';
 import { Rockets } from './rockets';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 //Thanks Freepic from the rockect images from https://www.flaticon.com/free-icon/fireworks_3034059?term=fireworks&page=1&position=12&origin=search&related_id=3034059
 @Component({
   selector: 'app-register',
