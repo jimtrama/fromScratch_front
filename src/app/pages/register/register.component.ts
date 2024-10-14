@@ -3,19 +3,22 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, of, Subscription } from 'rxjs';
 import { HeaderComponent } from '../../comps/header/header.component';
-
+import { Rockets } from './rockets';
+//Thanks Freepic from the rockect images from https://www.flaticon.com/free-icon/fireworks_3034059?term=fireworks&page=1&position=12&origin=search&related_id=3034059
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
-export class RegisterComponent {
+export class RegisterComponent{
   mobile: boolean = false;
   registrationForm: FormGroup;
   buttonLoadSubscription: Subscription | undefined = undefined;
   error="";
+  rockets:Rockets | undefined = undefined;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+    
     this.mobile = window.innerWidth < 600;
 
     this.registrationForm = this.formBuilder.group({
@@ -73,9 +76,18 @@ export class RegisterComponent {
           this.error = res.error;
         }
         if(res.success){
+          this.playAnimation();
           this.registrationForm.reset();
         }
         this.buttonLoadSubscription = undefined;
       });
   }
+
+  private playAnimation(){
+    if(!this.rockets )
+      this.rockets = new Rockets("can");
+    this.rockets.run();
+    setTimeout(()=>{this.rockets?.stop()},10000)
+  }
+
 }

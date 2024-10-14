@@ -52,6 +52,7 @@
     ></app-input>
     
     <div class="button-wrapper">
+      <canvas width="1500" height="800" id="can"></canvas>
       <span style="color: var(--green);" *ngIf="error != ''" >{{error}}</span>
       <button class="submit-button" type="submit"  [ngClass]="{'loading':buttonLoadSubscription?.closed}" >Submit</button>
     </div>
