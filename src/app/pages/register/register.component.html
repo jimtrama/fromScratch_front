@@ -69,7 +69,8 @@
       <button
         class="submit-button"
         type="submit"
-        [ngClass]="{ loading: buttonLoadSubscription?.closed }"
+        [ngClass]="{ loading: !buttonLoadSubscription?.closed && buttonLoadSubscription != undefined }"
+        [disabled]="!buttonLoadSubscription?.closed && buttonLoadSubscription != undefined"
       >
         Submit
       </button>
