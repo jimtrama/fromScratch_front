@@ -53,11 +53,19 @@
 
     <app-calendar
     [form]="registrationForm"
+    (calendarActive)="calendarAcitity($event)"
+    [selectedDate]="selectedDate"
     ></app-calendar>
+    <app-calendar-body 
+      [calendarEvent]="calendarEvent"
+      [selectedDate]="selectedDate"
+      (dateSelected)="dateSelected($event)"
+    >
+      
+    </app-calendar-body>
 
     <div class="button-wrapper">
       <canvas width="1500" height="800" id="can"></canvas>
-      <span style="color: var(--green)" *ngIf="error != ''">{{ error }}</span>
       <button
         class="submit-button"
         type="submit"

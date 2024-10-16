@@ -16,3 +16,10 @@ Deploy steps to Prod:
 1. git checkout prod 
 2. npm run build 
 3. firebase deploy 
+
+
+
+Will not do :
+
+1. Detect device type and for slow devices reduce the animations cause,
+animations might not be a good ux idea on slow cpu's 

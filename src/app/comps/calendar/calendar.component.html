@@ -1,13 +1,9 @@
 
-<div *ngIf="showCalendar" class="calendar-wrapper" >
-
-</div>
 <ng-container [formGroup]="form">
     <span class="label" >Date of birth</span>
 <input 
-[formControlName]="'date'"
+formControlName="date"
 [placeholder]="placeholder"
  (focusin)="onFocusEnter()"
- (focusout)="onFocusLeave()"
  />
 </ng-container>

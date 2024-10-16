@@ -1,0 +1,21 @@
+<div class="calendar-wrapper" *ngIf="calendarEvent.open">
+  <div
+    class="row"
+    *ngFor="let week of [7,14,21,28,35]; let i = index"
+  >
+    <div
+      class="date"
+      *ngFor="let date of filteredDates(week);let y = index"
+      (click)="dateClicked($event,y,i)"
+      [ngClass]="{
+            'selectedDate':selectedDate.getDate() === date.getDate(),
+            'today':date.getDate() === today
+        }"
+    >
+      {{ date.getDate() }}
+    </div>
+  </div>
+  <div class="row">
+    
+  </div>
+</div>
