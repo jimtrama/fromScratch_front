@@ -2,52 +2,59 @@
   background-color: var(--black);
   height: 310px;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
+
 .top-half-wrapper {
   width: 100%;
-  flex: 2;
+  height: 228px;
   background-color: var(--green);
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
 
-  img {
-    position: absolute;
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 119px;
+  width: auto;
+
+  animation-name: in-I;
+  animation-duration: 1.3s;
+  animation-fill-mode: forwards;
+}
+
+
+
+@keyframes in-I {
+  0% {
+    left: 100%;
     top: 66%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 89px;
-    width: auto;
-
-    animation-name: in-I;
-    animation-duration: 1.3s;
-    animation-fill-mode: forwards;
   }
-
-  @keyframes in-I {
-    0% {
-      left: 100%;
-      top: 66%;
-    }
-    100% {
-      top: 50%;
-      top: 66%;
-    }
+  100% {
+    top: 50%;
+    top: 50%;
   }
 }
 
 .bottom-half-wrapper {
-  flex: 1;
   background-color: var(--black);
   height: 75px;
   display: flex;
   justify-content: center;
   align-items: baseline;
-  position: relative;
+  position: absolute;
+  top: 227px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  object-fit: cover;
 
   .image-bg {
     z-index: 0;
@@ -58,6 +65,21 @@
     background-color: var(--green);
   }
 }
+@media only screen and (max-width: 600px) {
+  :host{
+    height: 242px;
+  }
+  .image{
+    height: 81px;
+  }
+  .top-half-wrapper{
+    height: 145px;
+  }
+  .bottom-half-wrapper {
+    top:144px;
+  }
+}
+
 
 #minecraft {
   z-index: 5;
@@ -84,7 +106,7 @@
   position: absolute;
   bottom: 3px;
   width: 355px;
-  height: 38px;
+  height: 58px;
   background-color: var(--peige);
 
   display: flex;
@@ -95,7 +117,7 @@
 
   button {
     background-color: transparent;
-    font-size: 19.84px;
+    font-size: 1.5rem;
     text-transform: uppercase;
     cursor: pointer;
     color: var(--black);
