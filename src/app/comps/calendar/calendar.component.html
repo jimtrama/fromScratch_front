@@ -1,0 +1,9 @@
+
+<ng-container [formGroup]="form">
+    <span class="label" >Date of birth</span>
+<input 
+formControlName="date"
+[placeholder]="placeholder"
+ (focusin)="onFocusEnter()"
+ />
+</ng-container>

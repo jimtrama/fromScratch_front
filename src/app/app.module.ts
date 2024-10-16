@@ -10,11 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TitleComponent } from './comps/title/title.component';
 import { ParticipantComponent } from './comps/participant/participant.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './comps/input/input.component';
 import { DropDownComponent } from './comps/drop-down/drop-down.component';
 import { CheckboxComponent } from './comps/checkbox/checkbox.component';
-
+import { CalendarComponent } from './comps/calendar/calendar.component';
+import { CalendarBodyComponent } from './comps/calendar-body/calendar-body.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { CheckboxComponent } from './comps/checkbox/checkbox.component';
     ParticipantComponent,
     InputComponent,
     DropDownComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    CalendarComponent,
+    CalendarBodyComponent
   ],
   imports: [
     BrowserModule,
