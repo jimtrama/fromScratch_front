@@ -9,6 +9,7 @@ type ParticipantType = {
   gitlab: string;
   kaggle: string;
   registrationDate: string;
+  bdate:string;
 };
 
 @Component({
@@ -19,11 +20,21 @@ type ParticipantType = {
 export class ParticipantsComponent {
   participants: ParticipantType[] = [];
   fetchingData: boolean = true;
+  message = "<No one is here, yet/>"
 
   constructor(private http: HttpClient) {
     this.http
       .get(environment.production?(environment.apiUrl+'/participants'):'/api/participants')
-      .pipe(catchError((err)=>{this.fetchingData=false;return of(err)}))
+      .pipe(catchError(
+        (err)=>{
+          console.log(err);
+          if(err.status===500){
+            this.message = "Server is Down :("
+          }
+          
+          this.fetchingData=false;
+          return of(err)
+        }))
       .subscribe((data: any) => {
         for (let user of data.results) {
           this.participants.push(user);
