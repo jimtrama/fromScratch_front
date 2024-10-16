@@ -5,56 +5,74 @@
 ></app-title>
 
 <div class="content-wrapper">
-  <div style="height: 120px;width: 100%; position: relative;">
+  <div style="height: 120px; width: 100%; position: relative">
     <p class="descrition">
       Welcome to Hacktoberfest 2024 <br />Fill in your information in order to
       <br *ngIf="mobile" />
       register
     </p>
   </div>
-  
-  <form [formGroup]="registrationForm"  (ngSubmit)="onSubmit()">
-    <app-input 
-      specialCharacter=">" 
-      placeholder="enter your name" 
-      label="Name *" 
-      name="firstName" 
+
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <app-input
+      specialCharacter=">"
+      placeholder="enter your name"
+      label="Name *"
+      name="firstName"
       [form]="registrationForm"
       [error]="firstName.invalid && (firstName.dirty || firstName.touched)"
       errorText="First Name is required."
     ></app-input>
-    <app-input 
-      specialCharacter=">" 
-      placeholder="enter your name" 
-      label="Last Name *" 
-      name="lastName" 
+    <app-input
+      specialCharacter=">"
+      placeholder="enter your name"
+      label="Last Name *"
+      name="lastName"
       [form]="registrationForm"
       [error]="lastName.invalid && (lastName.dirty || lastName.touched)"
       errorText="Last Name is required."
-      ></app-input>
-    <app-input 
-      specialCharacter=">" 
-      placeholder="enter your gitlab id" 
-      label="Gitlab ID *" 
-      name="gitlab" 
+    ></app-input>
+    <app-input
+      specialCharacter=">"
+      placeholder="enter your gitlab id"
+      label="Gitlab ID *"
+      name="gitlab"
       [form]="registrationForm"
       [error]="gitlab.invalid && (gitlab.dirty || gitlab.touched)"
       errorText="Gitlab ID is required."
     ></app-input>
-    <app-input 
-      specialCharacter=">" 
-      placeholder="enter your kaggle id" 
-      label="Kaggle ID *" 
-      name="kaggle" 
+    <app-input
+      specialCharacter=">"
+      placeholder="enter your kaggle id"
+      label="Kaggle ID *"
+      name="kaggle"
       [form]="registrationForm"
       [error]="kaggle.invalid && (kaggle.dirty || kaggle.touched)"
       errorText="Kaggle ID is required."
     ></app-input>
-    
+
+    <app-calendar
+    [form]="registrationForm"
+    (calendarActive)="calendarAcitity($event)"
+    [selectedDate]="selectedDate"
+    ></app-calendar>
+    <app-calendar-body 
+      [calendarEvent]="calendarEvent"
+      [selectedDate]="selectedDate"
+      (dateSelected)="dateSelected($event)"
+    >
+      
+    </app-calendar-body>
+
     <div class="button-wrapper">
       <canvas width="1500" height="800" id="can"></canvas>
-      <span style="color: var(--green);" *ngIf="error != ''" >{{error}}</span>
-      <button class="submit-button" type="submit"  [ngClass]="{'loading':buttonLoadSubscription?.closed}" >Submit</button>
+      <button
+        class="submit-button"
+        type="submit"
+        [ngClass]="{ loading: buttonLoadSubscription?.closed }"
+      >
+        Submit
+      </button>
     </div>
   </form>
 </div>

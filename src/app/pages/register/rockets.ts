@@ -8,7 +8,7 @@ export class Rockets {
 
   public playing = true;
 
-  private boidNum = 200;
+  private boidNum = 100;
 
   private countOut: number = 0;
   private until: number = 350;
