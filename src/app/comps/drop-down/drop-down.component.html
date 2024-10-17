@@ -1,1 +1,11 @@
-<p>drop-down works!</p>
+<div class="host">
+  <span class="label">Gender</span>
+  <mat-form-field>
+    <mat-label>select a gender</mat-label>
+    <mat-select (valueChange)="selectedValue($event)">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+      <mat-option value="other">Other</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

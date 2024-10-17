@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderService } from '../header.service';
 
 
-type RouteLink = "register" | "participants"
+export type RouteLink = "register" | "participants"
 
 const ANIMATION_VALUES = {
   "register":{
@@ -24,8 +25,8 @@ const ANIMATION_VALUES = {
 export class HeaderComponent implements OnInit{
   public selectedRoute:RouteLink = "register";
 
-  constructor(private router: Router){
-    
+  constructor(private router: Router,private headerService:HeaderService){
+    headerService.navigateTo = this.navLinkClicked.bind(this);
   }
   
   ngOnInit(): void {
@@ -38,7 +39,8 @@ export class HeaderComponent implements OnInit{
     this.animateHighlight(link);
     HeaderComponent.animateBounce();
     this.selectedRoute = link;
-    this.router.navigate([link])
+    this.router.navigate([link]);
+    this.headerService.currentTab = link;
   }
 
   mouseEnter(link:RouteLink):void{
