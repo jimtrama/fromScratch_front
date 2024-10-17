@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
 import { slideInAnimation } from './animations';
+import { HeaderService } from './comps/header.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ import { slideInAnimation } from './animations';
 })
 export class AppComponent {
 
-  constructor(private contexts: ChildrenOutletContexts){}
+  constructor(private contexts: ChildrenOutletContexts,private headerService:HeaderService){
+    this.headerService.registerScrollNavListeners();
+  }
 
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];

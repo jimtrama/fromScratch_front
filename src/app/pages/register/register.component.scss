@@ -123,3 +123,16 @@ canvas{
 .loading{
     background-color: var(--light-pink);
 }
+
+
+app-drop-down{
+width: 45%;
+    max-width: 545.5px;
+    min-width: 312px;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 20px;
+}

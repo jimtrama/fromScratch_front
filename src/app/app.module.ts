@@ -16,6 +16,8 @@ import { DropDownComponent } from './comps/drop-down/drop-down.component';
 import { CheckboxComponent } from './comps/checkbox/checkbox.component';
 import { CalendarComponent } from './comps/calendar/calendar.component';
 import { CalendarBodyComponent } from './comps/calendar-body/calendar-body.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatSelectModule} from '@angular/material/select'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +38,12 @@ import { CalendarBodyComponent } from './comps/calendar-body/calendar-body.compo
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    MatSelectModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

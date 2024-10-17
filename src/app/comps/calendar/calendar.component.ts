@@ -73,8 +73,7 @@ export class CalendarComponent implements OnChanges {
 
     const y = (<HTMLElement>this.elRef.nativeElement).offsetTop;
     const width =
-      (<HTMLElement>this.elRef.nativeElement).offsetWidth -
-      2 * parseInt(paddingLeft);
+      (<HTMLElement>this.elRef.nativeElement).offsetWidth -  (4 * parseInt(paddingLeft));
     const x =
       (<HTMLElement>this.elRef.nativeElement).offsetLeft +
       parseInt(paddingLeft);
@@ -90,7 +89,16 @@ export class CalendarComponent implements OnChanges {
 
   onClickOutside(element:HTMLElement, callback:()=>void){
     document.addEventListener('click', (e:any) => {
-      if (!element.contains(e.target)) callback();
+      
+      if (
+        !element.contains(e.target) &&
+        !document.getElementById("action-left")?.contains(e.target) &&
+        !document.getElementById("action-right")?.contains(e.target) 
+      ){
+        console.log(e.target);
+        callback();
+      }
+
     });
   };
 
