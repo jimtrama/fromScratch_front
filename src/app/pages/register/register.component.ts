@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, of, Subscription } from 'rxjs';
 import { HeaderComponent } from '../../comps/header/header.component';
 import { Rockets } from './rockets';
 import { environment } from '../../../environments/environment';
 import { CalendarEvent } from '../../comps/calendar/calendar.component';
+import { ThinksService } from '../../comps/thinks.service';
+import { ParticipantType } from '../participants/participants.component';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +21,30 @@ export class RegisterComponent{
   error="";
   rockets:Rockets | undefined = undefined;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  get boxes():{title:string,value:boolean}[]{
+    return this.checkBoxes.getData();
+  }
+
+  boxClicked(title:string){
+    this.checkBoxes.toggle(title);
+  }
+
+  constructor(private formBuilder: FormBuilder, private http: HttpClient,private checkBoxes:ThinksService) {
+    //border
+    document.documentElement.style.setProperty("--mdc-checkbox-unselected-icon-color","var(--white)")
+    document.documentElement.style.setProperty("--mdc-checkbox-unselected-hover-icon-color","var(--white)")
+    document.documentElement.style.setProperty("--mdc-checkbox-unselected-focus-icon-color","var(--white)")
+    document.documentElement.style.setProperty("--mdc-checkbox-selected-checkmark-color","var(--black)")
+    document.documentElement.style.setProperty("--mat-checkbox-label-text-color","var(--white)")
+    
+    document.documentElement.style.setProperty("--mdc-checkbox-selected-icon-color","var(--black)")
+    document.documentElement.style.setProperty("--mat-full-pseudo-checkbox-selected-icon-color","var(--black)")
+
+    document.documentElement.style.setProperty("--mdc-checkbox-selected-focus-icon-color","var(--white)")
+    document.documentElement.style.setProperty("--mdc-checkbox-selected-icon-color","var(--white)")
+    document.documentElement.style.setProperty("--mdc-checkbox-selected-icon-color","var(--white)")
+    document.documentElement.style.setProperty("--mdc-checkbox-selected-hover-icon-color","var(--pink)")
+    //document.documentElement.style.setProperty("--mdc-checkbox-selected-checkmark-color","var(--white)")
     
     this.mobile = window.innerWidth < 600;
 
@@ -29,6 +54,8 @@ export class RegisterComponent{
       gitlab: ['', Validators.required],
       kaggle: ['', Validators.required],
       date: [''],
+      about:[''],
+      gender:['']
     });
   }
 
@@ -52,8 +79,18 @@ export class RegisterComponent{
     return this.registrationForm.get('date');
   }
 
+  get about():any {
+    return this.registrationForm.get('about');
+  }
+
+  get gender():any {
+    return this.registrationForm.get('gender');
+  }
+
   onSubmit() {
     console.log(this.registrationForm);
+    console.log(this.checkBoxes.getData());
+    
     
     HeaderComponent.animateBounce();
     if (this.registrationForm.invalid) {
@@ -72,7 +109,10 @@ export class RegisterComponent{
           'lastName':this.lastName.value,
           'gitlab':this.gitlab.value,
           'kaggle':this.kaggle.value,
-          'date':this.date.value
+          'date':this.date.value,
+          'thinks':JSON.stringify(this.checkBoxes.getCheckedData()),
+          'about':this.about.value,
+          'gender':this.gender.value
         },
         {headers}
       )
@@ -88,6 +128,7 @@ export class RegisterComponent{
         if(res.success){
           this.playAnimation();
           this.registrationForm.reset();
+          this.checkBoxes.reset()
         }
         this.buttonLoadSubscription = undefined;
       });
@@ -116,6 +157,10 @@ export class RegisterComponent{
       (this.selectedDate.getMonth() + 1 ) + '/' +
       this.selectedDate.getFullYear()
     );
+  }
+
+  checkboxChanged(e:any,i:number){
+    this.checkBoxes.toggle(this.checkBoxes.getData()[i].title);
   }
 
 }

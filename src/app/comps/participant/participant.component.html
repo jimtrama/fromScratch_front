@@ -19,7 +19,21 @@
   <span  class="label">Registration Date:</span>
   <span>{{ registrationDate }}</span>
 </div>
-<div *ngIf="bdate != ''" class="row">
-  <span  class="label">Birt Date:</span>
+<div *ngIf="!!bdate" class="row">
+  <span  class="label">Birth Date:</span>
   <span>{{ bdate }}</span>
+</div>
+<div *ngIf="!!gender" class="row">
+  <span  class="label">Gender:</span>
+  <span>{{ gender }}</span>
+</div>
+<div *ngIf="!!about" class="row">
+  <span  class="label">About:</span>
+  <span>{{ about }}</span>
+</div>
+<div *ngIf="!!thinks && thinks?.length != 0" class="row">
+  <span  class="label">Thinks:</span>
+  <div *ngFor="let think of thinks">
+  <span>{{ think?.title }}</span>
+  </div>
 </div>

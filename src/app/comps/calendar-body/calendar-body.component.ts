@@ -101,7 +101,8 @@ export class CalendarBodyComponent implements OnChanges {
     );
   }
 
-  monthChange() {
+  monthChange(e:Event) {
+    e.preventDefault();
     this.rotatingDate.setMonth(this.rotatingDate.getMonth() + 1);
     this.constructCalendarDatesBasedOn(this.rotatingDate);
   }
@@ -110,6 +111,7 @@ export class CalendarBodyComponent implements OnChanges {
   private  showYears = false;
   yearChange(e:Event,year: Date) {
     e.stopPropagation();
+    e.preventDefault();
     this.showYears = false;
     (<HTMLElement> this.elRef.nativeElement).style.paddingBottom = "5px"
     this.rotatingDate.setFullYear(year.getFullYear());
@@ -119,7 +121,8 @@ export class CalendarBodyComponent implements OnChanges {
   getShowYears(){
     return this.showYears;
   }
-  setShowYearsTrue(){
+  setShowYearsTrue(e:Event){
+    e.preventDefault();
     this.showYears = true;
     console.log(this.scrollRef);
 

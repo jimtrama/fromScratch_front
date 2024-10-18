@@ -3,13 +3,16 @@ import { Component } from '@angular/core';
 import { catchError, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
-type ParticipantType = {
+export type ParticipantType = {
   firstName: string;
   lastName: string;
   gitlab: string;
   kaggle: string;
   registrationDate: string;
   bdate:string;
+  gender:string;
+  about:string;
+  thinks:string[];
 };
 
 @Component({
@@ -24,7 +27,7 @@ export class ParticipantsComponent {
 
   constructor(private http: HttpClient) {
     this.http
-      .get(environment.production?(environment.apiUrl+'/participants'):'/api/participants')
+      .get<ParticipantType>(environment.production?(environment.apiUrl+'/participants'):'/api/participants')
       .pipe(catchError(
         (err)=>{
           console.log(err);

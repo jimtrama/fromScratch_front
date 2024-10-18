@@ -55,6 +55,8 @@ form{
 
     white-space: nowrap;
 
+    color: var(--white);
+
 }
 
 .desc-wrapper{
@@ -126,7 +128,7 @@ canvas{
 
 
 app-drop-down{
-width: 45%;
+    width: 45%;
     max-width: 545.5px;
     min-width: 312px;
     height: fit-content;
@@ -135,4 +137,33 @@ width: 45%;
     flex-direction: column;
     gap: 20px;
     padding: 0px 20px;
+}
+.checkboxes-wrapper{
+    padding: 0px 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    span{
+        color: var(--white);
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+}
+.example-section{
+    display: flex;
+    gap: 10px;
+    width: 50%;
+}
+.checkbox{
+    opacity: 0;
+}
+.box{
+    width: 20px;
+    height: 20px;
+}
+.checkbox-title{
+    font-size: 1rem;
 }

@@ -4,6 +4,7 @@
       class="date"
       *ngFor="let date of filteredDates(week); let y = index"
       (click)="dateClicked($event, y, i)"
+      (touch)="dateClicked($event, y, i)"
       [ngClass]="{
         selectedDate: datesEqual(date, 'se'),
         today: datesEqual(date, '')
@@ -12,10 +13,10 @@
       {{ date.getDate() }}
     </div>
     <ng-container *ngIf="week > 28">
-      <button id="action-left" class="left" (click)="monthChange()">
+      <button id="action-left" class="left" (click)="monthChange($event)">
         {{ MONTHS_LABELS[rotatingDate.getMonth()] }}
       </button>
-      <button id="action-right" class="right" (click)="setShowYearsTrue()">
+      <button id="action-right" class="right" (click)="setShowYearsTrue($event)">
         {{ rotatingDate.getFullYear() }}
       </button>
     </ng-container>
