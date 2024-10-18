@@ -1,5 +1,6 @@
 # fromScratch_front
 
+Sorry, in advance for any typos 😢
 
 Installation 
 1. clone project
@@ -9,7 +10,6 @@ Installation
 Back-end repo URL : https://github.com/jimtrama/fromScratch_back
 
 App Link: https://fromscratch-2e1c9.web.app
-
 
 
 Deploy steps to Prod:
@@ -22,4 +22,6 @@ Deploy steps to Prod:
 Will not do :
 
 1. Detect device type and for slow devices reduce the animations cause,
-animations might not be a good ux idea on slow cpu's 
+animations might not be a good ux idea on slow cpu's
+
+2. Assecibility in mind and multy linqual  
