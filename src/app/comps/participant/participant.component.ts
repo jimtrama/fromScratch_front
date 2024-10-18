@@ -25,4 +25,17 @@ export class ParticipantComponent {
   @Input({required:true})
   registrationDate:string = ""
 
+  @Input({required:true})
+  gender:string = ""
+
+  @Input({required:true})
+  about:string = ''
+
+  @Input({required:true})
+  thinks:{title:string}[] = [];
+
+  constructor(){
+    
+  }
+
 }

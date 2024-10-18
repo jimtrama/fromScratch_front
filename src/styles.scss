@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -10,16 +9,18 @@
 @include mat.core();
 
 // Define the theme object.
-$front-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
+$front-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -35,57 +36,61 @@ $front-theme: mat.define-theme((
 // Comment out the line below if you want to use the deprecated `color` inputs.
 // @include mat.color-variants-backwards-compatibility($front-theme);
 :root {
-    --black: #1C1C1C;
-    --green: #50DA4C;
-    --peige: #DDBB8E;
-    --pink:  #C401C4;
-    --light-pink: #FF8BFF;
-    --white:#D1E2E8;
-    --light-blue: #F3F0E0;
-
+  --black: #1c1c1c;
+  --green: #50da4c;
+  --peige: #ddbb8e;
+  --pink: #c401c4;
+  --light-pink: #ff8bff;
+  --white: #d1e2e8;
+  --light-blue: #f3f0e0;
 }
 @font-face {
-    font-family: myFont;
-    src: url("/assets/fonts/SpaceGrotesk-Light.ttf");
+  font-family: myFont;
+  src: url("/assets/fonts/SpaceGrotesk-Light.ttf");
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-family: myFont;
-    overflow: hidden;
-    color: var(--white);
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: myFont;
+  overflow: hidden;
 }
 
-body{
-    background-color: var(--black);
-    width: 100vw;
-    height: 100vh;
+body {
+  background-color: var(--black);
+  width: 100vw;
+  height: 100vh;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 2px;
-    height: 20px;
-    padding-left: 3px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--black);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--green);
-    border-radius: 10px;
-    background-clip: content-box;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--pink);
-  }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  width: 2px;
+  height: 20px;
+  padding-left: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 10px;
+  background-clip: content-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink);
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -27,11 +27,12 @@
 .label{
     font-size: 1.2rem;
     font-weight: 100;
+    color: var(--white);
 }
 input{
     width: 90%;
     height: fit-content;
-    font-size: 20px;
+    font-size: 1.2rem;
     
     border: 2px solid var(--white);
     border-radius: 4px;
@@ -91,9 +92,16 @@ input:focus{
 
 .error-wrapper{
     position: absolute;
-    top: 28px;
     small{
         color: var(--green);
     }
+    animation-name: d;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
     
+}
+
+@keyframes d {
+    0%{top:-20px}
+    100%{top:25px}
 }

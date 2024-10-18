@@ -1,8 +1,8 @@
-<div class="host">
+<div class="host" [formGroup]="form" >
   <span class="label">Gender</span>
-  <mat-form-field>
+  <mat-form-field (click)="spin()" (focusout)="focusLeave()">
     <mat-label>select a gender</mat-label>
-    <mat-select (valueChange)="selectedValue($event)">
+    <mat-select [formControlName]="'gender'" (valueChange)="selectedValue($event)">
       <mat-option value="male">Male</mat-option>
       <mat-option value="female">Female</mat-option>
       <mat-option value="other">Other</mat-option>
