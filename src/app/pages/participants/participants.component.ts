@@ -12,7 +12,7 @@ export type ParticipantType = {
   bdate:string;
   gender:string;
   about:string;
-  thinks:string[];
+  thinks:{title:string}[];
 };
 
 @Component({
