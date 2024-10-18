@@ -110,7 +110,6 @@ export class CalendarBodyComponent implements OnChanges {
   rotatingDate: Date = new Date(this.selectedDate);
   private  showYears = false;
   yearChange(e:Event,year: Date) {
-    e.stopPropagation();
     e.preventDefault();
     this.showYears = false;
     (<HTMLElement> this.elRef.nativeElement).style.paddingBottom = "5px"
