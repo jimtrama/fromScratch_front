@@ -128,7 +128,7 @@ canvas{
 
 
 app-drop-down{
-    width: 45%;
+    width: 100%;
     max-width: 545.5px;
     min-width: 312px;
     height: fit-content;
@@ -137,12 +137,15 @@ app-drop-down{
     flex-direction: column;
     gap: 20px;
     padding: 0px 20px;
+    flex:0.5;
+    flex-grow: 1;
 }
 .checkboxes-wrapper{
     padding: 0px 20px;
-    width: 100%;
+    min-width: 90%;
     display: flex;
     flex-wrap: wrap;
+    flex: 1;
 
     span{
         color: var(--white);

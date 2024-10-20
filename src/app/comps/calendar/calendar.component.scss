@@ -1,13 +1,15 @@
 :host{
-    width: 45%;
+    width: 100%;
+    min-width: 300px;
     max-width: 545.5px;
-    min-width: 312px;
     height: fit-content;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 0px 20px;
+    flex:0.5;
+    flex-grow: 1;
 }
 
 input{

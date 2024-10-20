@@ -13,32 +13,30 @@ export class HeaderService {
   constructor() { }
 
   registerScrollNavListeners(){
-    window.addEventListener('touchstart',(e)=>{
-  
-      this.startPointTime.x = e.changedTouches[0].pageX;
-      this.startPointTime.y = e.changedTouches[0].pageY;
-      this.startPointTime.time = e.timeStamp;
-    })
-    window.addEventListener('touchend',(e)=>{
+    //Bellow code tris to simulate swipe nav , but on ios devices blocks click event
+    // window.addEventListener('touchstart',(e)=>{
+    //   this.startPointTime.x = e.changedTouches[0].pageX;
+    //   this.startPointTime.y = e.changedTouches[0].pageY;
+    //   this.startPointTime.time = e.timeStamp;
+    // },true)
+    // window.addEventListener('touchend',(e)=>{
 
-      const dX = e.changedTouches[0].pageX - this.startPointTime.x;
-      const dY =  e.changedTouches[0].pageY - this.startPointTime.y;
-      const dTimeMS = e.timeStamp -this.startPointTime.time;
-      console.log(dX,dY,dTimeMS);
+    //   const dX = e.changedTouches[0].pageX - this.startPointTime.x;
+    //   const dY =  e.changedTouches[0].pageY - this.startPointTime.y;
+    //   const dTimeMS = e.timeStamp -this.startPointTime.time;
 
-      if(
-        Math.abs(dY) <= 80 &&
-        Math.abs(dX) >= 200 &&
-        dTimeMS <= 300
-      ){
-        if(dX<0){
-          
-            this.navigateTo("participants");
-        }else{
-            this.navigateTo("register");
-          }
+    //   if(
+    //     Math.abs(dY) <= 140 &&
+    //     Math.abs(dX) >= 130 &&
+    //     dTimeMS <= 350
+    //   ){
+    //     if(dX<0){
+    //         this.navigateTo("participants");
+    //     }else{
+    //         this.navigateTo("register");
+    //       }
         
-      }
-    })
+    //   }
+    // },true)
   }
 }

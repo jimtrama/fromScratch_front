@@ -51,7 +51,8 @@ export class CalendarComponent implements OnChanges {
     }, 1);
   }
 
-  onFocusEnter() {
+  onFocusEnter(e:Event) {
+    e.preventDefault();
     this.onClickOutside(this.elRef.nativeElement,()=>{
       this.closeCalendar();
     })
@@ -93,7 +94,8 @@ export class CalendarComponent implements OnChanges {
       if (
         !element.contains(e.target) &&
         !document.getElementById("action-left")?.contains(e.target) &&
-        !document.getElementById("action-right")?.contains(e.target) 
+        !document.getElementById("action-right")?.contains(e.target) &&
+        !document.getElementById("action")?.contains(e.target)
       ){
         console.log(e.target);
         callback();

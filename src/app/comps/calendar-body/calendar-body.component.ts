@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -16,7 +15,13 @@ import { CalendarEvent } from '../calendar/calendar.component';
   templateUrl: './calendar-body.component.html',
   styleUrl: './calendar-body.component.scss',
 })
-export class CalendarBodyComponent implements OnChanges {
+export class CalendarBodyComponent implements OnChanges  {
+  @ViewChild('toscroll', { static: false })
+  scrollRef: ElementRef | undefined = undefined;
+
+  @ViewChild('toscrollCont', { static: false })
+  scrollContRef: ElementRef | undefined = undefined;
+
   MONTHS_LABELS = [
     'JAN',
     'FEB',
@@ -44,13 +49,10 @@ export class CalendarBodyComponent implements OnChanges {
   @Input({ required: true })
   selectedDate: Date = new Date();
 
+
   currentSelection: Date = new Date();
-
-  @ViewChild("toscroll",{static:false})
-  scrollRef:ElementRef|undefined = undefined;
-
-  @ViewChild("toscrollCont",{static:false})
-  scrollContRef:ElementRef|undefined = undefined;
+  rotatingDate: Date = new Date(this.selectedDate);
+  showYears = false;
 
   @Output()
   dateSelected: EventEmitter<Date> = new EventEmitter();
@@ -85,12 +87,10 @@ export class CalendarBodyComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    
     let num =
       changes['calendarEvent'].currentValue.y -
       (<HTMLElement>this.elRef.nativeElement).offsetHeight -
       this.MARGIN_BOTTOM;
-    //num = num <0 ? 0 :num;
     (<HTMLElement>this.elRef.nativeElement).style.left =
       changes['calendarEvent'].currentValue.x + 'px';
     (<HTMLElement>this.elRef.nativeElement).style.top = num + 'px';
@@ -101,44 +101,42 @@ export class CalendarBodyComponent implements OnChanges {
     );
   }
 
-  monthChange(e:Event) {
+  monthChange(e: Event) {
     e.preventDefault();
     this.rotatingDate.setMonth(this.rotatingDate.getMonth() + 1);
     this.constructCalendarDatesBasedOn(this.rotatingDate);
   }
 
-  rotatingDate: Date = new Date(this.selectedDate);
-  private  showYears = false;
-  yearChange(e:Event,year: Date) {
+  yearChange(e: Event, year: Date) {
     e.preventDefault();
-    this.showYears = false;
-    (<HTMLElement> this.elRef.nativeElement).style.paddingBottom = "5px"
+    (<HTMLElement>this.elRef.nativeElement).style.paddingBottom = '5px';
     this.rotatingDate.setFullYear(year.getFullYear());
     this.constructCalendarDatesBasedOn(this.rotatingDate);
+    this.showYears = false;
   }
 
-  getShowYears(){
-    return this.showYears;
-  }
-  setShowYearsTrue(e:Event){
+  setShowYearsTrue(e: Event) {
     e.preventDefault();
     this.showYears = true;
     console.log(this.scrollRef);
 
-    setTimeout(()=>{
-      (<HTMLElement>this.scrollRef?.nativeElement).scroll({left:
-        ((<HTMLElement>this.scrollContRef?.nativeElement).getBoundingClientRect().width / 8 )*5
-        ,behavior:'smooth'});
-    },10);
-    
-   
-    (<HTMLElement> this.elRef.nativeElement).style.paddingBottom = "100px"
+    setTimeout(() => {
+
+      (<HTMLElement>this.elRef?.nativeElement).scrollIntoView({behavior: 'smooth'});
+
+      (<HTMLElement>this.scrollRef?.nativeElement).scroll({
+        left:
+          ((<HTMLElement>(
+            this.scrollContRef?.nativeElement
+          )).getBoundingClientRect().width /
+            10) * 8,
+        behavior: 'smooth',
+      });
+    }, 100);
   }
 
   constructCalendarDatesBasedOn(refDate: Date) {
     console.log('Constructing');
-
-    this.selectedDate = new Date(this.selectedDate);
     let movingDate = new Date(refDate);
     let gurd = 0;
     const leftHalf: Date[] = [];
@@ -155,6 +153,7 @@ export class CalendarBodyComponent implements OnChanges {
     }
     //resetting moving
     movingDate = new Date(refDate);
+    gurd = 0 ;
     //Filling left of selected
     for (
       ;

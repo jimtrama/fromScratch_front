@@ -1,132 +1,132 @@
-:host{
-    position: absolute;
-    background-color: var(--black) ;
-    border:2px solid var(--white) ;
-    padding: 5px 10px;
-    border-radius: 3px;
-    height: 200px;
-    transition: all 0.5s;
+:host {
+  position: absolute;
+  background-color: var(--black);
+  border: 2px solid var(--white);
+  padding: 5px 10px;
+  border-radius: 3px;
+  height: 200px;
+  transition: all 0.5s;
 }
 @media only screen and (max-width: 600px) {
-    :host{
-        height: 190px;
-    }
-    .date{
-        font-size: 1rem !important;
-        padding: 9px !important;
-    }
-    
+  :host {
+    height: 190px;
+  }
+  .date {
+    font-size: 1rem !important;
+    padding: 9px !important;
+  }
 }
-.years-wrapper-scroll{
-    background-color: var(--black);
-    width: 100%;
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    overflow-x: scroll;
+.years-wrapper-scroll {
+  background-color: var(--black);
+  width: 100%;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  overflow-x: scroll;
 }
-.years-wrapper{
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    gap: 7px;
+.years-wrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 7px;
 }
-.year{
-    width: fit-content;
-    padding: 10px;
-    cursor: pointer;
-    background-color: var(--black);
-    color: var(--white);
-    font-size: 1.2rem;
-}
-.calendar-wrapper{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 5px;
-}
-
-.row{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    button{
-        background-color: var(--black);
-        color: var(--pink);
-        border: 1px solid var(--white);
-        border-radius: 2px;
-        padding: 2px 5px 2px 5px;
-        font-size: 1.2rem;
-        font-weight: bolder;
-        cursor: pointer;
-        position: absolute;
-        bottom: 0;
-        
-    }
-    .left{
-        left: 0;
-    }
-    .right{
-        right: 0;
-    }
+.year {
+  width: fit-content;
+  height: fit-content;
+  padding: 2px 10px;
+  cursor: pointer;
+  background-color: var(--black);
+  border: 2px solid var(--green);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 1.2rem;
+  text-align: center;
 
 }
-
-.date{
-    position: relative;
-    border-radius: 50%;
-    border: 1px solid var(--white);
-
-    width: 14px;
-    height: 14px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-
-    font-size: 1.2rem;
-    padding: 10px;
-
-    color: var(--white);
-
+.calendar-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 5px;
 }
 
-.selectedDate{
-    color: var(--green);
+.row {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.today{
-    color: var(--pink) !important;
+.action-button {
+  background-color: var(--black);
+  color: var(--pink);
+  border: 1px solid var(--white);
+  border-radius: 2px;
+  padding: 2px 5px 2px 5px;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
 }
 
+.date {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+
+  width: 14px;
+  height: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+
+  font-size: 1.2rem;
+  padding: 10px;
+
+  color: var(--white);
+}
+
+.selectedDate {
+  color: var(--green);
+}
+
+.today {
+  color: var(--pink) !important;
+}
 
 /* width */
 ::-webkit-scrollbar {
-    width: 100px;
-    height: 13px;
-    padding-left: 3px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--black);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--green);
-    border-radius: 10px;
-    background-clip: content-box;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--pink);
-  }
+  width: 100px;
+  height: 13px;
+  padding-left: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 10px;
+  background-clip: content-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink);
+}

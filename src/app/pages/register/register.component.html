@@ -61,6 +61,7 @@
       [selectedDate]="selectedDate"
     ></app-calendar>
     <app-calendar-body
+    *ngIf="calendarEvent.open"
       [calendarEvent]="calendarEvent"
       [selectedDate]="selectedDate"
       (dateSelected)="dateSelected($event)"

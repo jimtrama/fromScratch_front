@@ -4,7 +4,6 @@
       class="date"
       *ngFor="let date of filteredDates(week); let y = index"
       (click)="dateClicked($event, y, i)"
-      (touch)="dateClicked($event, y, i)"
       [ngClass]="{
         selectedDate: datesEqual(date, 'se'),
         today: datesEqual(date, '')
@@ -12,20 +11,33 @@
     >
       {{ date.getDate() }}
     </div>
-    <ng-container *ngIf="week > 28">
-      <button id="action-left" class="left" (click)="monthChange($event)">
-        {{ MONTHS_LABELS[rotatingDate.getMonth()] }}
-      </button>
-      <button id="action-right" class="right" (click)="setShowYearsTrue($event)">
-        {{ rotatingDate.getFullYear() }}
-      </button>
-    </ng-container>
   </div>
 </div>
-<div #toscroll  class="years-wrapper-scroll" *ngIf="getShowYears()">
-  <div #toscrollCont class="years-wrapper">
-    <button (click)="yearChange($event,year)" class="year" *ngFor="let year of years">
+<div #toscroll class="years-wrapper-scroll" *ngIf="showYears">
+  <div id="action" #toscrollCont class="years-wrapper">
+    <button
+      *ngFor="let year of years; let i = index"
+      role="button"
+      [id]="'year-btn-' + i"
+      (click)="yearChange($event, year)"
+      class="year"
+    >
       {{ year.getFullYear() }}
     </button>
   </div>
 </div>
+
+<button
+  id="action-left"
+  class="action-button left"
+  (click)="monthChange($event)"
+>
+  {{ MONTHS_LABELS[rotatingDate.getMonth()] }}
+</button>
+<button
+  id="action-right"
+  class="action-button right"
+  (click)="setShowYearsTrue($event)"
+>
+  {{ rotatingDate.getFullYear() }}
+</button>

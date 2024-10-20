@@ -3,7 +3,8 @@
     <span class="label" >Date of birth</span>
 <input 
 formControlName="date"
+readonly
 [placeholder]="placeholder"
- (focusin)="onFocusEnter()"
+ (focusin)="onFocusEnter($event)"
  />
 </ng-container>
