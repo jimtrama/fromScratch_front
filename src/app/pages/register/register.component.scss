@@ -3,12 +3,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 32px;
 }
+@media only screen and (max-width: 601px) {
+    :host {
+      gap: 12px;
+    }
+  }
 
 .content-wrapper{
-    margin-top: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -28,7 +31,7 @@ form{
 
     justify-content: space-around;
     align-items: flex-start;
-    gap: 15px;
+    row-gap: 32px;
     flex-wrap: wrap;
 
     overflow-y: scroll;
@@ -111,6 +114,7 @@ canvas{
     justify-content: flex-end;
     font-weight: 100;
     margin-top: 1.5rem;
+    margin-right: 10%;
 }
 
 @keyframes in-p {
@@ -130,7 +134,7 @@ canvas{
 app-drop-down{
     width: 100%;
     max-width: 545.5px;
-    min-width: 312px;
+    min-width: 45%;
     height: fit-content;
     position: relative;
     display: flex;
@@ -142,7 +146,9 @@ app-drop-down{
 }
 .checkboxes-wrapper{
     padding: 0px 20px;
-    min-width: 90%;
+    width: 90%;
+    min-width: 60%;
+
     display: flex;
     flex-wrap: wrap;
     flex: 1;
@@ -155,6 +161,14 @@ app-drop-down{
         font-size: 1.2rem;
     }
 }
+
+@media only screen and (max-width: 801px) {
+    .checkboxes-wrapper {
+        max-width: 545.5px;
+    }
+    
+  }
+
 .example-section{
     display: flex;
     gap: 10px;

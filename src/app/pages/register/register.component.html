@@ -15,7 +15,7 @@
 
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <app-input
-      specialCharacter=">"
+      [specialCharacter]="!mobile?'>':'|'"
       placeholder="enter your name"
       label="Name *"
       name="firstName"
@@ -24,7 +24,7 @@
       errorText="First Name is required."
     ></app-input>
     <app-input
-      specialCharacter=">"
+      [specialCharacter]="!mobile?'>':'|'"
       placeholder="enter your name"
       label="Last Name *"
       name="lastName"
@@ -33,7 +33,7 @@
       errorText="Last Name is required."
     ></app-input>
     <app-input
-      specialCharacter=">"
+      [specialCharacter]="!mobile?'>':'|'"
       placeholder="enter your gitlab id"
       label="Gitlab ID *"
       name="gitlab"
@@ -42,7 +42,7 @@
       errorText="Gitlab ID is required."
     ></app-input>
     <app-input
-      specialCharacter=">"
+      [specialCharacter]="!mobile?'>':'|'"
       placeholder="enter your kaggle id"
       label="Kaggle ID *"
       name="kaggle"
@@ -83,9 +83,7 @@
         >
       </section>
     </div>
-
     <div class="button-wrapper">
-      <canvas width="1500" height="800" id="can"></canvas>
       <button
         class="submit-button"
         type="submit"
@@ -103,3 +101,4 @@
     </div>
   </form>
 </div>
+<canvas width="1500" height="800" id="can"></canvas>

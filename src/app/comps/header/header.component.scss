@@ -104,14 +104,16 @@
 
 .nav-bar-wrapper {
   position: absolute;
-  bottom: 3px;
+  top: 20px;
   width: 355px;
   height: 58px;
   background-color: var(--peige);
 
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+
+  gap: 40px;
 
   z-index: 10;
 

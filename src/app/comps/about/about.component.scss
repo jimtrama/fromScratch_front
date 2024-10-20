@@ -1,14 +1,22 @@
 :host{
-    min-width: 90%;
-    height: 200px;
+    width: 90%;
+    min-width: 60%;
+    
     height: fit-content;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
     padding: 0px 20px;
     flex: 1;
 }
+@media only screen and (max-width: 801px) {
+    :host {
+        max-width: 545.5px;
+    }
+    
+  }
+
 
 textarea{
     border: 2px solid var(--white);

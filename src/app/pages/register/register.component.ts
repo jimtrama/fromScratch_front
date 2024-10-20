@@ -46,7 +46,7 @@ export class RegisterComponent{
     document.documentElement.style.setProperty("--mdc-checkbox-selected-hover-icon-color","var(--pink)")
     //document.documentElement.style.setProperty("--mdc-checkbox-selected-checkmark-color","var(--white)")
     
-    this.mobile = window.innerWidth < 600;
+    this.mobile = window.innerWidth < 827;
 
     this.registrationForm = this.formBuilder.group({
       firstName: ['', Validators.required],
