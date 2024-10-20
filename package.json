@@ -1,9 +1,9 @@
 {
   "name": "front",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 192.168.1.15 --proxy-config proxy.conf.json",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

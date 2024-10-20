@@ -105,13 +105,13 @@ export class RegisterComponent{
     this.buttonLoadSubscription = this.http
       .post(environment.production?(environment.apiUrl+'/participant'):'/api/participant',
         {
-          'firstName':this.firstName.value,
-          'lastName':this.lastName.value,
-          'gitlab':this.gitlab.value,
-          'kaggle':this.kaggle.value,
-          'date':this.date.value,
+          'firstName':this.firstName.value.trim(),
+          'lastName':this.lastName.value.trim(),
+          'gitlab':this.gitlab.value.trim(),
+          'kaggle':this.kaggle.value.trim(),
+          'date':this.date.value.trim(),
           'thinks':JSON.stringify(this.checkBoxes.getCheckedData()),
-          'about':this.about.value,
+          'about':this.about.value.trim(),
           'gender':this.gender.value
         },
         {headers}
