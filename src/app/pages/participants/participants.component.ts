@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { catchError, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { ScrollService } from './scroll.service';
 
 export type ParticipantType = {
   firstName: string;
@@ -13,6 +14,7 @@ export type ParticipantType = {
   gender:string;
   about:string;
   thinks:{title:string}[];
+  id:string;
 };
 
 @Component({
@@ -25,7 +27,8 @@ export class ParticipantsComponent {
   fetchingData: boolean = true;
   message = "<No one is here, yet/>"
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,public scrollService:ScrollService) {
+
     this.http
       .get<ParticipantType>(environment.production?(environment.apiUrl+'/participants'):'/api/participants')
       .pipe(catchError(
@@ -39,8 +42,10 @@ export class ParticipantsComponent {
           return of(err)
         }))
       .subscribe((data: any) => {
-        for (let user of data.results) {
-          this.participants.push(user);
+        for (let i = 0 ;i< data.results.length;i++) {
+          this.participants.push(data.results[i]);
+          this.participants[this.participants.length-1].id = 'card-'+i
+          this.scrollService.add(this.participants[this.participants.length-1]);
         }
         this.fetchingData = false;
       });
