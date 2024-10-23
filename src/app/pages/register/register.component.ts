@@ -88,14 +88,9 @@ export class RegisterComponent{
   }
 
   onSubmit() {
-    console.log(this.registrationForm);
-    console.log(this.checkBoxes.getData());
-    
     
     HeaderComponent.animateBounce();
     if (this.registrationForm.invalid) {
-      console.log('Invalid Form Please Clean ');
-      console.log(this.registrationForm);
       this.error = 'Invalid Form Please Clean';
       this.registrationForm.markAllAsTouched();
       return;

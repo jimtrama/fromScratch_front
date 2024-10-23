@@ -97,7 +97,6 @@ export class CalendarComponent implements OnChanges {
         !document.getElementById("action-right")?.contains(e.target) &&
         !document.getElementById("action")?.contains(e.target)
       ){
-        console.log(e.target);
         callback();
       }
 

@@ -33,7 +33,7 @@ export class InputComponent {
   focused(e: FocusEvent, focused: boolean) {
     const element = document.getElementById('special-'+this.label);
     if(!element) {
-      console.log("Not Ready") 
+      //console.log("Not Ready") 
     }
     if (focused) {
       if(element?.classList.contains("jump-in")){

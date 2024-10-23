@@ -20,7 +20,7 @@ export class ParticipantComponent {
   kaggle:string = ""
 
   @Input({required:true})
-  bdate:string = ""
+  date:string = ""
 
   @Input({required:true})
   registrationDate:string = ""

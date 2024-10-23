@@ -9,7 +9,7 @@ export type ParticipantType = {
   gitlab: string;
   kaggle: string;
   registrationDate: string;
-  bdate:string;
+  date:string;
   gender:string;
   about:string;
   thinks:{title:string}[];
@@ -30,7 +30,6 @@ export class ParticipantsComponent {
       .get<ParticipantType>(environment.production?(environment.apiUrl+'/participants'):'/api/participants')
       .pipe(catchError(
         (err)=>{
-          console.log(err);
           if(err.status===500){
             this.message = "Server is Down :("
           }

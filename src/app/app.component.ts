@@ -15,6 +15,7 @@ export class AppComponent {
 
   constructor(private contexts: ChildrenOutletContexts,private headerService:HeaderService){
     this.headerService.registerScrollNavListeners();
+    console.log("Hello , can i help ?")
   }
 
   getRouteAnimationData() {

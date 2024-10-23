@@ -47,7 +47,6 @@ export class DropDownComponent implements OnInit{
   }
 
   selectedValue(e:any){
-    console.log(e);
     setTimeout(()=>{
       (<HTMLElement>document.getElementById("mat-mdc-form-field-label-0")).classList.add('toTop');
 

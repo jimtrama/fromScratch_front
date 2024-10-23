@@ -118,7 +118,6 @@ export class CalendarBodyComponent implements OnChanges  {
   setShowYearsTrue(e: Event) {
     e.preventDefault();
     this.showYears = true;
-    console.log(this.scrollRef);
 
     setTimeout(() => {
 
@@ -136,7 +135,6 @@ export class CalendarBodyComponent implements OnChanges  {
   }
 
   constructCalendarDatesBasedOn(refDate: Date) {
-    console.log('Constructing');
     let movingDate = new Date(refDate);
     let gurd = 0;
     const leftHalf: Date[] = [];
