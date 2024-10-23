@@ -24,4 +24,5 @@ Will not do :
 1. Detect device type and for slow devices reduce the animations cause,
 animations might not be a good ux idea on slow cpu's
 
-2. Assecibility in mind and multy linqual  
+2. Assecibility in mind and multy linqual
+3. Icons
