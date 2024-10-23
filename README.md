@@ -1,3 +1,4 @@
+
 # fromScratch_front
 
 
@@ -22,4 +23,6 @@ Deploy steps to Prod:
 Will not do :
 
 1. Detect device type and for slow devices reduce the animations cause,
-animations might not be a good ux idea on slow cpu's 
+animations might not be a good ux idea on slow cpu's
+
+2. Icons
